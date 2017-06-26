@@ -31,6 +31,14 @@ class LinkedList:
             self.head.set_next(node)
         self.length += 1
 
+    def add_last(self, header):
+        node = Node(header)
+        current_node = self.head.get_next()
+        while current_node.get_next() is not None:
+            current_node = current_node.get_next()
+        current_node.set_next(node)
+        self.length += 1
+
     def __str__(self):
         l = []
         current_node = self.head.next
@@ -42,14 +50,18 @@ class LinkedList:
     def insert(self, new_header, add_after_node):
         current_node = self.head.get_next()
         new_node = Node(new_header)
-        while current_node.get_next() is not None:
-            current_node = current_node.get_next()
+        initial_length = self.length
+        while current_node is not None:
             if current_node.get_top() == add_after_node:
                 new_node.set_next(current_node.get_next())
                 current_node.set_next(new_node)
                 self.length += 1
                 break
-        if current_node.get_next() is None:
+            current_node = current_node.get_next()
+
+        # this piece need to be changed
+        #if current_node.get_next() is None:
+        if initial_length == self.length:
             print('There is no node {} in the list'.format(add_after_node))
 
     def has_node(self, target):
@@ -67,6 +79,28 @@ class LinkedList:
     def is_empty(self):
         return self.head.next == None
 
+    def del_node(self, node_to_del):
+        '''delete an element from the linked list'''
+        current_node = self.head
+        while current_node.get_next() is not None:
+            if current_node.get_next().get_top() == node_to_del:
+                node_after_delited = current_node.get_next()
+                current_node.set_next(node_after_delited.get_next())
+                self.length -= 1
+                break
+            current_node = current_node.get_next()
+
+
+    def find_min(self):
+        '''returns the min element'''
+        current_node = self.head.get_next()#.get_top()
+        min = current_node.get_top()
+        while current_node.get_next() is not None:
+            if min > current_node.get_next().get_top():
+                min = current_node.get_next().get_top()
+            current_node = current_node.get_next()
+        return min
+
 
 
 ll = LinkedList()
@@ -79,15 +113,30 @@ ll.add_node(7)
 print('add node 7')
 ll.add_node(8)
 print('add node 8\n')
+
 print('\nlist size: ', ll.get_size())
 print(ll)
-print('\ninsert node 5 after node 7')
-ll.insert(5, 7)
+
+print('\ninsert node 5 after node 1')
+ll.insert(5, 1)
+
 print('list size: ', ll.get_size())
 print(ll)
+
 print('\ninsert node 5 after node 6')
 ll.insert(5, 6)
+
 print('\ndo we have node 56?')
 print(ll.has_node(56))
 print('\ndo we have node 7?')
 print(ll.has_node(7))
+
+print('\ndelite node 8')
+ll.del_node(8)
+print(ll)
+
+print(ll.head.get_next().get_top())
+print(ll.find_min())
+
+ll.add_last(12)
+print(ll)
