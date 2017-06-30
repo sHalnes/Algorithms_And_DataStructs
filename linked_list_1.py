@@ -103,40 +103,40 @@ class LinkedList:
 
 
 
-ll = LinkedList()
-print('Create linked list')
-ll.add_node(1)
-print('add node 1')
-ll.add_node(2)
-print('add node 2')
-ll.add_node(7)
-print('add node 7')
-ll.add_node(8)
-print('add node 8\n')
-
-print('\nlist size: ', ll.get_size())
-print(ll)
-
-print('\ninsert node 5 after node 1')
-ll.insert(5, 1)
-
-print('list size: ', ll.get_size())
-print(ll)
-
-print('\ninsert node 5 after node 6')
-ll.insert(5, 6)
-
-print('\ndo we have node 56?')
-print(ll.has_node(56))
-print('\ndo we have node 7?')
-print(ll.has_node(7))
-
-print('\ndelite node 8')
-ll.del_node(8)
-print(ll)
-
-print(ll.head.get_next().get_top())
-print(ll.find_min())
-
-ll.add_last(12)
-print(ll)
+# ll = LinkedList()
+# print('Create linked list')
+# ll.add_node(1)
+# print('add node 1')
+# ll.add_node(2)
+# print('add node 2')
+# ll.add_node(7)
+# print('add node 7')
+# ll.add_node(8)
+# print('add node 8\n')
+#
+# print('\nlist size: ', ll.get_size())
+# print(ll)
+#
+# print('\ninsert node 5 after node 1')
+# ll.insert(5, 1)
+#
+# print('list size: ', ll.get_size())
+# print(ll)
+#
+# print('\ninsert node 5 after node 6')
+# ll.insert(5, 6)
+#
+# print('\ndo we have node 56?')
+# print(ll.has_node(56))
+# print('\ndo we have node 7?')
+# print(ll.has_node(7))
+#
+# print('\ndelite node 8')
+# ll.del_node(8)
+# print(ll)
+#
+# print(ll.head.get_next().get_top())
+# print(ll.find_min())
+#
+# ll.add_last(12)
+# print(ll)
