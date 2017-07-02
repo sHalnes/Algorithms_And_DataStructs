@@ -19,9 +19,9 @@ class Heap:
             parent = int((index - 1) / 2)
             if self.heap[parent] < self.heap[index]:
                 self.heap[parent], self.heap[index] = self.heap[index], self.heap[parent]
-            if parent == 0:
+                index = parent
+            else:
                 break
-            index = parent
 
     def make_heap_down(self):
         index = 0
